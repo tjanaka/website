@@ -1,13 +1,15 @@
 // Configuration for Eleventy.
 
 const fs = require("fs");
+const path = require("path");
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("assets");
+  const inputDir = "src";
+  const outputDir = "build";
 
-  miscFiles = ["favicon.ico"];
-  for (const file of miscFiles) {
-    eleventyConfig.addPassthroughCopy(file);
+  staticFiles = ["assets/", "favicon.ico"];
+  for (const file of staticFiles) {
+    eleventyConfig.addPassthroughCopy(path.join(inputDir, file));
   }
 
   eleventyConfig.setBrowserSyncConfig({
@@ -37,8 +39,8 @@ module.exports = function (eleventyConfig) {
 
   return {
     dir: {
-      input: "src",
-      output: "build",
+      input: inputDir,
+      output: outputDir,
     },
   };
 };
