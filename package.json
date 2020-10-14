@@ -6,6 +6,8 @@
     "start": "eleventy --serve",
     "build": "eleventy",
     "lint": "eslint '**/*.{js,jsx}' --quiet",
+    "linkinator": "linkinator ./build --recurse",
+    "test": "npm run linkinator",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build -r https://github.com/tjanaka/tjanaka.github.io -b master"
   },
@@ -22,6 +24,7 @@
     "eslint-config-prettier": "^4.3.0",
     "gh-pages": "^2.0.1",
     "husky": "^2.3.0",
+    "linkinator": "^2.2.0",
     "lint-staged": "^8.1.7",
     "prettier": "^2.1.2"
   },
