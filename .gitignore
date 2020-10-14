@@ -1,0 +1,8 @@
+# Site output
+build/
+
+# JavaScript
+node_modules/
+
+# Editor files
+*.swp

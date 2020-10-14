@@ -1,0 +1,44 @@
+// Configuration for Eleventy.
+
+const fs = require("fs");
+
+module.exports = function (eleventyConfig) {
+  eleventyConfig.addPassthroughCopy("assets");
+
+  miscFiles = ["favicon.ico"];
+  for (const file of miscFiles) {
+    eleventyConfig.addPassthroughCopy(file);
+  }
+
+  eleventyConfig.setBrowserSyncConfig({
+    port: 8000,
+    open: "local",
+    online: false,
+    localOnly: true,
+    host: "localhost",
+    notify: true,
+    // Only bind to the localhost IP, (instead of 0.0.0.0, which allows external
+    // connections -- interesting that this is an undocumented feature here:
+    // https://www.browsersync.io/docs/options). I found out about this feature
+    // here: https://github.com/BrowserSync/browser-sync/pull/1431
+    listen: "localhost",
+    // See https://www.11ty.dev/docs/quicktips/not-found/
+    callbacks: {
+      ready: function (err, bs) {
+        const content404 = fs.readFileSync("build/404.html");
+        bs.addMiddleware("*", (req, res) => {
+          // Provides the 404 content without redirect.
+          res.write(content404);
+          res.end();
+        });
+      },
+    },
+  });
+
+  return {
+    dir: {
+      input: "src",
+      output: "build",
+    },
+  };
+};
