@@ -1,0 +1,21 @@
+// Styles used across the site.
+
+::selection {
+  background-color: rgba(#c0c0c0, 0.5);
+}
+
+ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 1em;
+  text-indent: -1em;
+
+  li {
+    padding: 2px 0px;
+
+    &:before {
+      content: "-";
+      margin-right: 7px;
+    }
+  }
+}

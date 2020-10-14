@@ -24,8 +24,14 @@ npm start
 
 The following scripts are in `package.json`. Run them with `npm run <COMMAND>`.
 
-- `start`: Start the development server.
-- `build`: Build the website to the `build` folder.
+- `dev:assets`: Use Webpack to live reload asset files (JS and SCSS).
+- `dev:site`: Run the Eleventy live server.
+- `start`: Start the development server and Webpack (i.e. `dev:assets` with
+  `dev:site`)
+- `build:assets`: Build the assets with Webpack.
+- `build:site`: Build the site with Eleventy.
+- `build`: Build the website to the `build` folder (i.e. `build:assets` with
+  `build:site`).
 - `lint`: Run eslint on JavaScript files in the repo.
 - `linkinator`: Runs linkinator on the site to check for broken links.
 - `test`: Runs any tests (e.g. linkinator) on the site. Can also invoke with

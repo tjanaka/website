@@ -7,10 +7,17 @@ module.exports = function (eleventyConfig) {
   const inputDir = "src";
   const outputDir = "build";
 
-  staticFiles = ["assets/", "favicon.ico"];
+  staticFiles = ["favicon.ico", "images/"];
   for (const file of staticFiles) {
     eleventyConfig.addPassthroughCopy(path.join(inputDir, file));
   }
+
+  // Webpack Files.
+  eleventyConfig.addWatchTarget("./src/compiled-assets/main.css");
+  eleventyConfig.addWatchTarget("./src/compiled-assets/main.js");
+  eleventyConfig.addWatchTarget("./src/compiled-assets/vendor.js");
+  // Copy src/compiled-assets to /assets.
+  eleventyConfig.addPassthroughCopy({ "src/compiled-assets": "assets" });
 
   eleventyConfig.setBrowserSyncConfig({
     port: 8000,

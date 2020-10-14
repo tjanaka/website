@@ -1,0 +1,23 @@
+// Animations used throughout the site.
+
+@keyframes fade-rotate-down {
+  0% {
+    transform: rotateX(90deg) translateY(-200%);
+    color: rgba($text-color-dark, 0);
+  }
+  100% {
+    transform: rotateX(0deg) translateY(0%);
+    color: rgba($text-color-dark, 1);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    color: rgba($text-color-dark, 0);
+    border-color: rgba($text-color-dark, 0);
+  }
+  100% {
+    color: rgba($text-color-dark, 1);
+    border-color: rgba($text-color-dark, 1);
+  }
+}

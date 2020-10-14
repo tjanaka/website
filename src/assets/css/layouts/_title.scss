@@ -1,0 +1,53 @@
+// Properties for the "title" layout.
+
+.title__body {
+  margin: 0px;
+  padding: 0px;
+  background-color: $bkgd-color-dark;
+  color: $text-color-dark;
+
+  a {
+    display: inline-block;
+    color: $text-color-dark;
+    margin: 5px 10px;
+    animation: fade-in 2s linear;
+    text-decoration: none;
+    border-bottom: 1px solid $text-color-dark;
+
+    &:link {
+    }
+    &:visited {
+    }
+    &:hover {
+      font-weight: 300;
+    }
+    &:active {
+      color: $primary-color;
+    }
+  }
+}
+
+.title__centered {
+  width: 100%;
+  max-width: 800px;
+  margin: 0px auto;
+}
+
+.title__main {
+  margin: 35vh 20px 0 20px;
+  h1 {
+    text-align: center;
+    font-size: 50px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    margin: 0px;
+    animation: fade-rotate-down 1.5s ease-out;
+  }
+}
+
+.title__content {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+  text-align: center;
+}
