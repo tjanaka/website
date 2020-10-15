@@ -68,6 +68,11 @@ The following is a list of key technologies used in this repo:
 
 Refer to `package.json` for a complete list of dependencies.
 
+## Features
+
+- Add `katex: true` in the front matter to turn on Katex styling (JS rendering
+  is done at compile time)
+
 ## References
 
 - [Creating a production-ready Eleventy project with webpack, Babel and Sass](https://dev.to/stowball/creating-a-production-ready-eleventy-project-with-webpack-babel-and-sass-35ep)

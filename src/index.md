@@ -1,5 +1,5 @@
 ---
-layout: title
+layout: title.html
 title: Tjanaka
 ---
 

@@ -4,7 +4,11 @@
   content="width=device-width, initial-scale=1, shrink-to-fit=no"
 />
 
-<link rel="stylesheet" href="/assets/main.css?<%- cacheBust.mainCss %>" />
+<link rel="stylesheet" href="/assets/main.css?{{ cacheBust.mainCss }}" />
+
+{%- if katex -%}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+{%- endif -%}
 
 {% include head/open_graph.html %}
 {% include head/favicon.html %}

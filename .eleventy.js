@@ -16,13 +16,40 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy(path.join(inputDir, file));
   }
 
-  // Webpack Files.
+  // Webpack files.
   eleventyConfig.addWatchTarget("./src/compiled-assets/main.css");
   eleventyConfig.addWatchTarget("./src/compiled-assets/main.js");
   eleventyConfig.addWatchTarget("./src/compiled-assets/vendor.js");
   // Copy src/compiled-assets to /assets.
   eleventyConfig.addPassthroughCopy({ "src/compiled-assets": "assets" });
 
+  // Markdown parsing with markdown-it.
+  const markdownIt = require("markdown-it");
+  const markdownItKatex = require("markdown-it-katex");
+  const options = {
+    html: true,
+  };
+  const markdownLib = markdownIt(options).use(markdownItKatex);
+  eleventyConfig.setLibrary("md", markdownLib);
+
+  // Minify HTML.
+  if (process.env.ELEVENTY_ENV === "production") {
+    eleventyConfig.addTransform("htmlmin", (content, outputPath) => {
+      if (outputPath.endsWith(".html")) {
+        const minified = htmlmin.minify(content, {
+          collapseInlineTagWhitespace: false,
+          collapseWhitespace: true,
+          removeComments: true,
+          sortClassName: true,
+          useShortDoctype: true,
+        });
+        return minified;
+      }
+      return content;
+    });
+  }
+
+  // BrowserSync settings.
   eleventyConfig.setBrowserSyncConfig({
     port: 8000,
     open: "local",
@@ -47,24 +74,6 @@ module.exports = function (eleventyConfig) {
       },
     },
   });
-
-  if (process.env.ELEVENTY_ENV === "production") {
-    eleventyConfig.addTransform("htmlmin", (content, outputPath) => {
-      if (outputPath.endsWith(".html")) {
-        const minified = htmlmin.minify(content, {
-          collapseInlineTagWhitespace: false,
-          collapseWhitespace: true,
-          removeComments: true,
-          sortClassName: true,
-          useShortDoctype: true,
-        });
-
-        return minified;
-      }
-
-      return content;
-    });
-  }
 
   return {
     dir: {
