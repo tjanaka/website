@@ -36,7 +36,16 @@ module.exports = {
               },
             },
           },
+          {
+            loader: "postcss-loader",
+          },
         ],
+      },
+      {
+        // Transpile and polyfill JS with Babel.
+        test: /\.js$/,
+        use: "babel-loader",
+        exclude: /node_modules/,
       },
     ],
   },

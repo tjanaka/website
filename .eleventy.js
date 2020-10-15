@@ -1,11 +1,15 @@
 // Configuration for Eleventy.
 
 const fs = require("fs");
+const htmlmin = require("html-minifier");
 const path = require("path");
 
 module.exports = function (eleventyConfig) {
   const inputDir = "src";
   const outputDir = "build";
+
+  // Don't use the gitignore because it will ignore src/compiled-assets.
+  eleventyConfig.setUseGitIgnore(false);
 
   staticFiles = ["favicon.ico", "images/"];
   for (const file of staticFiles) {
@@ -43,6 +47,24 @@ module.exports = function (eleventyConfig) {
       },
     },
   });
+
+  if (process.env.ELEVENTY_ENV === "production") {
+    eleventyConfig.addTransform("htmlmin", (content, outputPath) => {
+      if (outputPath.endsWith(".html")) {
+        const minified = htmlmin.minify(content, {
+          collapseInlineTagWhitespace: false,
+          collapseWhitespace: true,
+          removeComments: true,
+          sortClassName: true,
+          useShortDoctype: true,
+        });
+
+        return minified;
+      }
+
+      return content;
+    });
+  }
 
   return {
     dir: {
