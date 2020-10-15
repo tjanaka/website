@@ -58,6 +58,10 @@ The following is a list of key technologies used in this repo:
   - `prettier` for auto-formatting
   - `eslint` for linting
   - `husky` and `lint-staged` for automatically running linters on staged files
+- CI/CD
+  - `GitHub Actions` builds the site and deploys it to a `GitHub Pages` site
+    hosted at <https://github.com/tjanaka/tjanaka.github.io>. The actual domain
+    of this site is `https://tjanaka.net`.
 
 Refer to `package.json` for a complete list of dependencies.
 
