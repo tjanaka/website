@@ -1,6 +1,6 @@
 # Tjanaka Website
 
-![GitHub Pages](https://github.com/tjanaka/website/workflows/GitHub%20Pages/badge.svg)
+![Test and Deploy](https://github.com/tjanaka/website/workflows/Test%20and%20Deploy/badge.svg)
 
 This website builds to <https://github.com/tjanaka/tjanaka.github.io>, which is
 served at <https://tjanaka.net>.
@@ -45,14 +45,15 @@ The following scripts are in `package.json`. Run them with `npm run <COMMAND>`.
 
 ## Technologies
 
-This website uses a _ton_ of technologies. For information on
-including many of these technologies, see
+This website uses a _ton_ of technologies. For information on including many of
+these technologies, see
 [this tutorial](https://dev.to/stowball/creating-a-production-ready-eleventy-project-with-webpack-babel-and-sass-35ep).
 The following is a list of key technologies used in this repo:
 
 - Website
   - `eleventy` is a static site generator that is the core of this website
-  - `webpack` allows us to bundle lots of handy features like custom (S)CSS and JS
+  - `webpack` allows us to bundle lots of handy features like custom (S)CSS and
+    JS
   - `babel` for transpiling new JS for compatibility with old browsers
   - Tons of plugins for `webpack` that facilitate optimizations like minifying
     HTML, CSS, and JS
