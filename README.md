@@ -1,5 +1,7 @@
 # Tjanaka Website
 
+![GitHub Actions](https://github.com/tjanaka/website/workflows/GitHub%20Pages/badge.svg)
+
 This website builds to <https://github.com/tjanaka/tjanaka.github.io>, which is
 served at <https://tjanaka.net>.
 
