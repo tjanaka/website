@@ -1,9 +1,13 @@
 # Tjanaka Website
 
 ![Test and Deploy](https://github.com/tjanaka/website/workflows/Test%20and%20Deploy/badge.svg)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/67e98efa-8002-49dc-9c61-9ce50dde5289/deploy-status)](https://app.netlify.com/sites/tjanaka/deploys)
 
-This website builds to <https://github.com/tjanaka/tjanaka.github.io>, which is
-served at <https://tjanaka.net>.
+This website is hosted in two places:
+
+- GitHub Pages: Builds to <https://github.com/tjanaka/tjanaka.github.io>, which
+  is served at <https://tjanaka.net> AKA <https://tjanaka.github.io>
+- Netlify: Builds to <https://net.tjanaka.net> AKA <https://tjanaka.netlify.app>
 
 ## Instructions
 
@@ -65,6 +69,8 @@ The following is a list of key technologies used in this repo:
   - `GitHub Actions` builds the site and deploys it to a `GitHub Pages` site
     hosted at <https://github.com/tjanaka/tjanaka.github.io>. The actual domain
     of this site is `https://tjanaka.net`.
+  - `Netlify` builds the site and hosts it at <https://net.tjanaka.net> and
+    <https://tjanaka.netlify.app> (same place).
 
 Refer to `package.json` for a complete list of dependencies.
 
