@@ -4,6 +4,13 @@
   content="width=device-width, initial-scale=1, shrink-to-fit=no"
 />
 
+{%- if description -%}
+  {%- assign _desc = description -%}
+{%- else -%}
+  {%- assign _desc = siteDefaults.description -%}
+{%- endif -%}
+<meta name="description" content="{{ _desc }}">
+
 <link rel="stylesheet" href="/assets/main.css?{{ cacheBust.mainCss }}" />
 
 {%- if katex -%}
