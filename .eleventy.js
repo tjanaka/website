@@ -11,7 +11,7 @@ module.exports = function (eleventyConfig) {
   // Don't use the gitignore because it will ignore src/compiled-assets.
   eleventyConfig.setUseGitIgnore(false);
 
-  staticFiles = ["CNAME", "robots.txt", "favicon.ico", "imgs/", "favicon/"];
+  staticFiles = ["robots.txt", "favicon.ico", "imgs/", "favicon/"];
   for (const file of staticFiles) {
     eleventyConfig.addPassthroughCopy(path.join(inputDir, file));
   }

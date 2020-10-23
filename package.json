@@ -10,10 +10,12 @@
     "build:assets": "webpack --config webpack.config.prod.js",
     "build:site": "ELEVENTY_ENV=production eleventy",
     "build": "npm-run-all build:clean build:assets build:site",
+    "build:cname": "cp CNAME build",
+    "build:ghpages": "npm-run-all build build:cname",
     "lint": "eslint '**/*.{js,jsx}' --quiet",
     "linkinator": "linkinator ./build --recurse",
     "test": "npm run linkinator",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build:ghpages",
     "deploy": "gh-pages -d build -r https://github.com/tjanaka/tjanaka.github.io -b master"
   },
   "repository": {
