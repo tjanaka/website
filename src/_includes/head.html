@@ -1,15 +1,8 @@
 <meta charset="utf-8" />
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1, shrink-to-fit=no"
-/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-{%- if description -%}
-  {%- assign _desc = description -%}
-{%- else -%}
-  {%- assign _desc = siteDefaults.description -%}
-{%- endif -%}
-<meta name="description" content="{{ _desc }}">
+{% include head/seo.html %}
 
 <link rel="stylesheet" href="/assets/main.css?{{ cacheBust.mainCss }}" />
 
@@ -17,7 +10,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 {%- endif -%}
 
-{% include head/open_graph.html %}
 {% include head/favicon.html %}
 
 <title>{{ title }}</title>
